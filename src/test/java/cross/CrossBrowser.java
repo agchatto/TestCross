@@ -11,14 +11,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class CrossBrowser {
 	WebDriver driver = null;
 
-	@BeforeMethod @Parameters(value = { "browser" })
-	public void beforeMethod(String browser) {
+	@BeforeMethod 
+	@Parameters(value = { "browser" })
+	public void beforeMethod(@Optional ("Chrome") String browser) {
 
 		if (browser.equalsIgnoreCase("Chrome")) {
 			System.out.println("CHROME NAVIGATED");
